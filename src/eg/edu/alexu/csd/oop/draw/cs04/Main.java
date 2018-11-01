@@ -8,7 +8,6 @@ public class Main {
         Circle circle = new Circle();
         Map<String,Double> temp = new HashMap<>();
         temp.put("radius",0.5);
-        temp.put("height",0.6);
         circle.setProperties(temp);
     }
 }
