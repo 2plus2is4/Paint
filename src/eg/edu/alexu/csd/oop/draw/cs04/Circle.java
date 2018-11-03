@@ -16,7 +16,7 @@ public class Circle extends Shape{
     }
 
     public Circle() {
-        this.radius = 0.0;
+        this.radius = 0.00;
         this.position = new Point(0,0);
         Map<String,Double>temp=new HashMap<>();
         temp.put("radius",0.0);
