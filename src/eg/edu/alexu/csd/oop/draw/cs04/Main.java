@@ -9,5 +9,6 @@ public class Main {
         Map<String,Double> temp = new HashMap<>();
         temp.put("radius",0.5);
         circle.setProperties(temp);
+        Triangle t=new Triangle();
     }
 }

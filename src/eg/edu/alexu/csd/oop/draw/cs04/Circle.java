@@ -38,4 +38,11 @@ public class Circle extends Shape{
         return c;
     }
 
+    @Override
+    public void draw (Graphics canvas) {
+
+        canvas.drawOval(this.position.x, this.position.y, this.radius.intValue(), this.radius.intValue());
+    }
+
 }
+
