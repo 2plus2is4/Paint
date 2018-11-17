@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6c5ef725-a71e-4d05-b8c9-d2010fa5191d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/eg/edu/alexu/csd/oop/draw/cs04/Main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/DrawingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/DrawingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Ellipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/LineSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/LineSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Triangle.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1887923161">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="4" />
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="20" />
+          <entry key="md" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="4" />
+          <entry key="JAVA" value="20" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1023" />
+          <entry key="md" value="38" />
+          <entry key="txt" value="30" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1023" />
+          <entry key="Markdown" value="38" />
+          <entry key="PLAIN_TEXT" value="30" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Draw" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/DrawingEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
+              <folding>
+                <element signature="e#447#448#0" expanded="true" />
+                <element signature="e#472#473#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/SanityTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>History.size() - 1</find>
+      <find>i++</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/DrawingEngine.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Shape.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Main.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Circle.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Ellipse.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/LineSegment.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Rectangle.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Square.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Triangle.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/SanityTest.java" />
+        <option value="$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/DrawingEngine.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Draw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shithappens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Draw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shithappens" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Draw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shithappens" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="oop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Draw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shithappens" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="oop" type="462c0819:PsiDirectoryNode" />
+              <item name="draw" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Draw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shithappens" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="oop" type="462c0819:PsiDirectoryNode" />
+              <item name="draw" type="462c0819:PsiDirectoryNode" />
+              <item name="cs04" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Draw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shithappens" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="oop" type="462c0819:PsiDirectoryNode" />
+              <item name="draw" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542488939166" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.SanityTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="eg.edu.alexu.csd.oop.draw.cs04.Main" />
+      <module name="Draw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eg.edu.alexu.csd.oop.draw.cs04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Draw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eg.edu.alexu.csd.oop.test.draw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eg.edu.alexu.csd.oop.test.draw" />
+      <option name="MAIN_CLASS_NAME" value="eg.edu.alexu.csd.oop.test.draw.IntegrationTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTest.testGraphics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Draw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eg.edu.alexu.csd.oop.test.draw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eg.edu.alexu.csd.oop.test.draw" />
+      <option name="MAIN_CLASS_NAME" value="eg.edu.alexu.csd.oop.test.draw.IntegrationTest" />
+      <option name="METHOD_NAME" value="testGraphics" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SanityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Draw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eg.edu.alexu.csd.oop.test.draw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eg.edu.alexu.csd.oop.test.draw" />
+      <option name="MAIN_CLASS_NAME" value="eg.edu.alexu.csd.oop.test.draw.SanityTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmokeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Draw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eg.edu.alexu.csd.oop.test.draw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eg.edu.alexu.csd.oop.test.draw" />
+      <option name="MAIN_CLASS_NAME" value="eg.edu.alexu.csd.oop.test.draw.SmokeTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.IntegrationTest" />
+      <item itemvalue="JUnit.SanityTest" />
+      <item itemvalue="JUnit.IntegrationTest.testGraphics" />
+      <item itemvalue="JUnit.SmokeTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SanityTest" />
+        <item itemvalue="JUnit.SmokeTest" />
+        <item itemvalue="JUnit.IntegrationTest" />
+        <item itemvalue="JUnit.IntegrationTest.testGraphics" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c5ef725-a71e-4d05-b8c9-d2010fa5191d" name="Default Changelist" comment="" />
+      <created>1541541949926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541541949926</updated>
+      <workItem from="1541541960247" duration="1332000" />
+      <workItem from="1541543322329" duration="53000" />
+      <workItem from="1541543401569" duration="3000" />
+      <workItem from="1542394492546" duration="3128000" />
+      <workItem from="1542483828634" duration="5482000" />
+    </task>
+    <task id="LOCAL-00001" summary="trying main class">
+      <created>1541542641332</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541542641332</updated>
+    </task>
+    <task id="LOCAL-00002" summary="trying main class">
+      <created>1541542862319</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541542862319</updated>
+    </task>
+    <task id="LOCAL-00003" summary="edit1">
+      <created>1542484219419</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542484219419</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="SmokeTest - 2018.11.17 at 23h 03m 52s.xml">
+      <configuration name="SmokeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 03m 57s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 04m 28s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 05m 22s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 06m 43s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 07m 09s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 07m 43s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 08m 25s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 08m 29s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SanityTest - 2018.11.17 at 23h 08m 41s.xml">
+      <configuration name="SanityTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9998000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8232406" visible="true" weight="0.2647504" />
+      <window_info id="Structure" order="1" sideWeight="0.1767594" side_tool="true" visible="true" weight="0.2647504" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5013624" side_tool="true" weight="0.2647504" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27332243" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49848714" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="trying main class" />
+    <MESSAGE value="edit1" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/IntegrationTest.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/SmokeTest.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/SanityTest.java</url>
+          <line>182</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="17">
+            <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/awt/Graphics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="97" column="5" lean-forward="true" selection-start-line="94" selection-start-column="4" selection-end-line="97" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Circle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="35" column="25" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Ellipse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Triangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/IntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/SmokeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="460" column="19" selection-start-line="460" selection-start-column="19" selection-end-line="460" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/DrawingEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/LineSegment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/test/draw/SanityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eg/edu/alexu/csd/oop/draw/cs04/DrawingEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
+          <folding>
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
