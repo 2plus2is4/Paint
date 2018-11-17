@@ -25,7 +25,8 @@ public class Square extends Rectangle {
         Square s = new Square();
         s.setColor(this.getColor());
         s.setFillColor(this.getFillColor());
-        s.setPosition(this.getPosition());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        s.setPosition(p);
         Map<String,Double> temp = new HashMap<>();
         int[] x = new int[0];
         for(Map.Entry<String,Double> ss:this.getProperties().entrySet()){

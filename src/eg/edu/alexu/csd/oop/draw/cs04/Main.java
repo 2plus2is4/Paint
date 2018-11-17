@@ -9,6 +9,7 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args){
         Circle circle = new Circle();
+        /*
         Frame f = new Frame("DrawOOP");
         f.setSize(800,800);
         f.setResizable(false);
@@ -22,6 +23,9 @@ public class Main {
         Map<String,Double> temp = new HashMap<>();
         temp.put("radius",0.5);
         circle.setProperties(temp);
+        */
+        DrawingEngine de = new DrawingEngine();
+
         Triangle t=new Triangle();
     }
 }

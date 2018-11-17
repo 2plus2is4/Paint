@@ -39,7 +39,8 @@ public class Rectangle extends Shape{
         Rectangle r = new Rectangle();
         r.setColor(this.getColor());
         r.setFillColor(this.getFillColor());
-        r.setPosition(this.getPosition());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        r.setPosition(p);
         Map<String,Double> temp = new HashMap<>();
         int[] x = new int[0];
         for(Map.Entry<String,Double> s:this.getProperties().entrySet()){

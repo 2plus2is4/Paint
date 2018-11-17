@@ -32,7 +32,8 @@ public class Circle extends Shape{
         Circle c = new Circle();
         c.setColor(this.getColor());
         c.setFillColor(this.getFillColor());
-        c.setPosition(this.getPosition());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        c.setPosition(p);
         Map<String,Double> temp = new HashMap<>();
         int[] x = new int[0];
         for(Map.Entry<String,Double> s:this.getProperties().entrySet()){

@@ -36,7 +36,8 @@ public class Ellipse extends Shape {
         Ellipse e = new Ellipse();
         e.setColor(this.getColor());
         e.setFillColor(this.getFillColor());
-        e.setPosition(this.getPosition());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        e.setPosition(p);
         Map<String,Double> temp = new HashMap<>();
         int[] x = new int[0];
         for(Map.Entry<String,Double> s:this.getProperties().entrySet()){

@@ -39,7 +39,8 @@ public class LineSegment extends Shape {
         LineSegment l = new LineSegment();
         l.setColor(this.getColor());
         l.setFillColor(this.getFillColor());
-        l.setPosition(this.getPosition());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        l.setPosition(p);
         Map<String,Double> temp = new HashMap<>();
         int[] x = new int[0];
         for(Map.Entry<String,Double> s:this.getProperties().entrySet()){

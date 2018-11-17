@@ -39,17 +39,18 @@ public class Triangle extends Shape {
 
     @Override
     public Object clone(){
-        LineSegment l = new LineSegment();
-        l.setColor(this.getColor());
-        l.setFillColor(this.getFillColor());
-        l.setPosition(this.getPosition());
+        Triangle t = new Triangle();
+        t.setColor(this.getColor());
+        t.setFillColor(this.getFillColor());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        t.setPosition(p);
         Map<String,Double> temp = new HashMap<>();
         int[] x = new int[0];
         for(Map.Entry<String,Double> s:this.getProperties().entrySet()){
             temp.put(s.getKey(),s.getValue());
         }
-        l.setProperties(temp);
-        return l;
+        t.setProperties(temp);
+        return t;
     }
 
     @Override

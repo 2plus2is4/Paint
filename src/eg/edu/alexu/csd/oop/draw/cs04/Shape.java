@@ -93,6 +93,7 @@ public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
+        
         return this;
     }
 }
