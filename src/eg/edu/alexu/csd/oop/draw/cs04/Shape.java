@@ -2,14 +2,39 @@ package eg.edu.alexu.csd.oop.draw.cs04;
 
 import java.awt.*;
 import java.util.Map;
+import javafx.scene.paint.Color;
 
 public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
+    public void setPosition(Point position) {
+        this.position = position;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public void setFillcolor(Color fillcolor) {
+        this.fillcolor = fillcolor;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     private Point position;
     private Map<String, Double> properties;
-    private Paint color;
-    private Paint fillcolor;
+    private Color color;
 
+    public Color getFillcolor() {
+        return fillcolor;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    private Color fillcolor;
+    private int index;
 
     public Shape(Point position, Map<String, Double> properties, Color color, Color fillcolor) {
         this.position = position;
@@ -43,7 +68,7 @@ public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
 
     @Override
     public void setColor(Object color) {
-        this.color = ((Color) color);
+        this.color = ((javafx.scene.paint.Color) color);
     }
 
     @Override

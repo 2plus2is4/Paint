@@ -47,6 +47,7 @@ public class Circle extends Shape{
 
         ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
         ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
+        ((GraphicsContext) canvas).setLineWidth(5);
         ((GraphicsContext)canvas).strokeOval((this.position.x)-radius, (this.position.y)-radius, this.radius.intValue(), this.radius.intValue());
         ((GraphicsContext)canvas).fillOval((this.position.x)-radius, (this.position.y)-radius, this.radius.intValue(), this.radius.intValue());
     }

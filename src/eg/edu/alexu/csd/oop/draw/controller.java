@@ -1,43 +1,5 @@
-/*package eg.edu.alexu.csd.oop.draw;
-
-import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-
-import eg.edu.alexu.csd.oop.draw.cs04.*;
-
-public class controller extends Application {
-
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(createContent()));
-        stage.show();
-    }
-
-    private Parent createContent() {
-        Pane root = new Pane();
-        root.setPrefSize(1000,800);
-
-
-        return root;
-    }
-
-    public static void main(String[] args){
-        launch(args);
-    }
-
-    public static class lancher{
-        public static void main(String[] args) {
-            controller.main(args);
-        }
-    }
-}
-*/
-
 package eg.edu.alexu.csd.oop.draw;
+
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -45,8 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.ArcType;
+
 import javafx.stage.Stage;
+import eg.edu.alexu.csd.oop.draw.cs04.*;
+
+import java.awt.Point;
 
 public class controller extends Application {
 
@@ -67,9 +34,11 @@ public class controller extends Application {
     }
 
     private void drawShapes(GraphicsContext gc) {
-        gc.setFill(Color.GREEN);
-        gc.setStroke(Color.BLUE);
-        gc.setLineWidth(5);
+        Rectangle c = new Rectangle(new Point(2,2),new Point(200,200),new Point(0,100));
+        c.setFillColor(Color.BLUE);
+        c.setColor(Color.YELLOW);
+        c.draw(gc);
+        /*gc.setLineWidth(5);
         gc.strokeLine(40, 10, 10, 40);
         gc.fillOval(10, 60, 30, 30);
         gc.strokeOval(10, 60, 30, 30);
@@ -86,6 +55,6 @@ public class controller extends Application {
         gc.strokePolygon(new double[]{60, 90, 60, 90},
                 new double[]{210, 210, 240, 240}, 4);
         gc.strokePolyline(new double[]{110, 140, 110, 140},
-                new double[]{210, 210, 240, 240}, 4);
+                new double[]{210, 210, 240, 240}, 4);*/
     }
 }
