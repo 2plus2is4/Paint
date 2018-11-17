@@ -70,7 +70,8 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
                 e.printStackTrace();
             }
         }
-        temp.remove(shape);
+        //temp.remove(shape);
+        delete(((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).getIndex(),temp);
         History.add(++i,temp);
     }
 
@@ -88,8 +89,8 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
             }
         }
         ((eg.edu.alexu.csd.oop.draw.cs04.Shape) newShape).setIndex(ID++);
-        t.add(newShape);
-        t.remove(oldShape);
+        t.add(delete(((eg.edu.alexu.csd.oop.draw.cs04.Shape) oldShape).getIndex(),t),newShape);
+        //t.remove(oldShape);
         History.add(++i,t);
     }
 
@@ -125,6 +126,20 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
     @Override
     public void load(String path) {
 
+    }
+
+    private int delete(int id, ArrayList<Shape> s){
+        int x=0;
+        for (Shape shape : s) {
+            if(((eg.edu.alexu.csd.oop.draw.cs04.Shape)shape).getIndex()==id ){
+                s.remove(shape);
+                return x;
+            }
+            x++;
+        }
+
+
+        return -1;
     }
 
     private void copy(ArrayList<Shape> t) throws CloneNotSupportedException {
