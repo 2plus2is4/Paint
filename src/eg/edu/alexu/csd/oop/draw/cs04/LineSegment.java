@@ -1,5 +1,8 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +13,7 @@ public class LineSegment extends Shape {
     public LineSegment(Point a, Point b){
         this.p1 = a;
         this.p2 = b;
-        this.position = new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2);
+        this.setPosition(new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2));
         Map<String,Double> temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
@@ -22,7 +25,7 @@ public class LineSegment extends Shape {
     public LineSegment() {
         this.p1=new Point(0,0);
         this.p2=new Point(0,0);
-        this.position = new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2);
+        this.setPosition(new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2));
         Map<String,Double>temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
@@ -47,9 +50,10 @@ public class LineSegment extends Shape {
     }
 
     @Override
-    public void draw (Graphics canvas) {
-
-        canvas.drawLine(p1.x,p1.y,p2.x,p2.y);
+    public void draw (Object canvas) {
+        ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
+        ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
+        ((GraphicsContext) canvas).strokeLine(p1.x,p1.y,p2.x,p2.y);
     }
 
 }

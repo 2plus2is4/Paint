@@ -1,5 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +13,7 @@ public class Triangle extends Shape {
         this.p2 = b;
         this.p3 = c;
         Point p4 =new Point((p3.x-p2.x)/2,(p3.y-p2.y)/2);
-        this.position = new Point(Math.abs((p4.x-p1.x)*(2/3)),Math.abs((p4.y-p1.y)*(2/3)));
+        this.setPosition(new Point(Math.abs((p4.x-p1.x)*(2/3)),Math.abs((p4.y-p1.y)*(2/3))));
         Map<String,Double> temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
@@ -26,7 +28,7 @@ public class Triangle extends Shape {
         this.p1=new Point(0,0);
         this.p2=new Point(0,0);
         this.p3=new Point(0,0);
-        this.position = new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2);
+        this.setPosition(new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2)) ;
         Map<String,Double>temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
@@ -51,9 +53,16 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public void draw (Graphics canvas) {
+    public void draw (Object canvas) {
 
-        canvas.drawLine(p1.x,p1.y,p2.x,p2.y);
+        double[] y= {((double) p1.y), ((double) p2.y), ((double) p3.y)};
+        double[] x= {((double) p1.x), ((double) p2.x), ((double) p3.x)};
+
+
+        ((GraphicsContext) canvas).setStroke((Paint) this.getColor());
+        ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
+        ((GraphicsContext) canvas).fillPolygon( x,y,3);
+        ((GraphicsContext) canvas).strokePolygon( x,y,3);
     }
 
 }

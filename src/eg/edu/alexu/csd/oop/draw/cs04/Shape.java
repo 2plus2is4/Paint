@@ -5,19 +5,29 @@ import java.util.Map;
 
 public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
 
-    protected Point position;
-    protected Map<String, Double> properties;
-    protected Color color;
-    protected Color fillcolor;
-    protected Graphics canvas;
+    private Point position;
+    private Map<String, Double> properties;
+    private Paint color;
+    private Paint fillcolor;
 
-    @Override
-    public void setPosition(Point position) {
+
+    public Shape(Point position, Map<String, Double> properties, Color color, Color fillcolor) {
         this.position = position;
+        this.properties = properties;
+        this.color = color;
+        this.fillcolor = fillcolor;
+    }
+
+    public Shape() {
     }
 
     @Override
-    public Point getPosition() {
+    public void setPosition(Object position) {
+        this.position = ((Point) position);
+    }
+
+    @Override
+    public Object getPosition() {
         return this.position;
     }
 
@@ -32,27 +42,27 @@ public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
     }
 
     @Override
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColor(Object color) {
+        this.color = ((Color) color);
     }
 
     @Override
-    public Color getColor() {
+    public Object getColor() {
         return this.color;
     }
 
     @Override
-    public void setFillColor(Color color) {
-        this.fillcolor = color;
+    public void setFillColor(Object color) {
+        this.fillcolor = ((Color)color);
     }
 
     @Override
-    public Color getFillColor() {
+    public Object getFillColor() {
         return this.fillcolor;
     }
 
     @Override
-    public void draw(Graphics canvas) {
+    public void draw(Object canvas) {
 
     }
 

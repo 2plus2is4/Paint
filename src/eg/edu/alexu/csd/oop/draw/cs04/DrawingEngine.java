@@ -6,8 +6,9 @@ import java.awt.*;
 import java.util.List;
 
 public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
+
     @Override
-    public void refresh(Graphics canvas) {
+    public void refresh(Object canvas) {
 
     }
 

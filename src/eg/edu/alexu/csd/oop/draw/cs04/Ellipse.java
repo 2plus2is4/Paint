@@ -1,16 +1,20 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Ellipse extends Shape {
     private Double a, b;
+    private Point position;
 
     public Ellipse(Double a, Double b ,Point position){
         this.a = a;
         this.b = b;
-        this.position = position;
+        this.setPosition(this.position);
         Map<String,Double> temp=new HashMap<>();
         temp.put("a",a);
         temp.put("b",b);
@@ -20,7 +24,7 @@ public class Ellipse extends Shape {
     public Ellipse() {
         this.a = 0.0;
         this.b = 0.0;
-        this.position = new Point(0,0);
+        this.setPosition(this.position);
         Map<String,Double>temp=new HashMap<>();
         temp.put("a",0.0);
         temp.put("b",0.0);
@@ -43,9 +47,11 @@ public class Ellipse extends Shape {
     }
 
     @Override
-    public void draw (Graphics canvas) {
-
-        canvas.drawOval(this.position.x, this.position.y, this.a.intValue(), this.b.intValue());
+    public void draw (Object canvas) {
+        ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
+        ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
+        ((GraphicsContext)canvas).strokeOval((this.position.x)-a, (this.position.y)-b, this.a.intValue(), this.b.intValue());
+        ((GraphicsContext)canvas).fillOval((this.position.x)-a, (this.position.y)-b, this.a.intValue(), this.b.intValue());
     }
 
 }

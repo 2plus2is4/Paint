@@ -4,6 +4,14 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
+
 public class Square extends Rectangle {
     private Point upleft, downright;
 
@@ -31,7 +39,10 @@ public class Square extends Rectangle {
     }
 
     @Override
-    public void draw (Graphics canvas) {
-        canvas.drawRect((downright.x-upleft.x)/2,(downright.y-upleft.y)/2,downright.x-upleft.x,downright.y-upleft.y);
+    public void draw (Object canvas) {
+        ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
+        ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
+        ((GraphicsContext) canvas).strokeRect(upleft.x,upleft.y,downright.x-upleft.x,downright.y-upleft.y);
+        ((GraphicsContext) canvas).fillRect(upleft.x,upleft.y,downright.x-upleft.x,downright.y-upleft.y);
     }
 }

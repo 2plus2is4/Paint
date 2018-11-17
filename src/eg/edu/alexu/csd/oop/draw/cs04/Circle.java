@@ -1,11 +1,15 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Circle extends Shape{
     private Double radius;
+    private Point position;
 
     public Circle(Double radius, Point position){
         this.radius = radius;
@@ -17,7 +21,7 @@ public class Circle extends Shape{
 
     public Circle() {
         this.radius = 0.0;
-        this.position = new Point(0,0);
+        this.position = position;
         Map<String,Double>temp=new HashMap<>();
         temp.put("radius",0.0);
         this.setProperties(temp);
@@ -39,9 +43,12 @@ public class Circle extends Shape{
     }
 
     @Override
-    public void draw (Graphics canvas) {
+    public void draw (Object canvas) {
 
-        canvas.drawOval(this.position.x, this.position.y, this.radius.intValue(), this.radius.intValue());
+        ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
+        ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
+        ((GraphicsContext)canvas).strokeOval((this.position.x)-radius, (this.position.y)-radius, this.radius.intValue(), this.radius.intValue());
+        ((GraphicsContext)canvas).fillOval((this.position.x)-radius, (this.position.y)-radius, this.radius.intValue(), this.radius.intValue());
     }
 
 }
