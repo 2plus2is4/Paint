@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
-    ArrayList<ArrayList<Shape>> History;
+    ArrayList<ArrayList<Shape>> History = new ArrayList<>(20);
     GraphicsContext gc;
     int iterator = 0;
 
@@ -24,7 +24,6 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
     }
 
     public DrawingEngine() {
-        History = new ArrayList<>(20);
         for (ArrayList<Shape> shapes : History) {
             shapes = new ArrayList<>();
         }

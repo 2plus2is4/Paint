@@ -7,10 +7,7 @@ import java.util.Map;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.ParseException;
-import org.json.simple.parser.JSONParser;
+
 
 public class Square extends Rectangle {
     private Point upleft, downright;
