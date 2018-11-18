@@ -7,6 +7,7 @@ import javafx.scene.canvas.GraphicsContext;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
@@ -47,12 +48,13 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
         ArrayList<Shape> t = new ArrayList<>();
         if (History.size() > 0) {
             try {
-                copy(t);
+                copy(t,null);
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
         }
-        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
+//        shape.getProperties().put("ID",(double) ID++);
+        //((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
         t.add(shape);
         History.add(++i,t);
     }
@@ -62,17 +64,16 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
         if (History.size() >= 20) {
             History.remove(0);
         }
-        ArrayList<Shape> temp = new ArrayList<>();
+        ArrayList<Shape> t = new ArrayList<>();
         if (History.size() > 0) {
             try {
-                copy(temp);
+                copy(t,shape);
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
         }
         //temp.remove(shape);
-        delete(((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).getIndex(),temp);
-        History.add(++i,temp);
+        History.add(++i,t);
     }
 
     @Override
@@ -83,13 +84,15 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
         ArrayList<Shape> t = new ArrayList<>();
         if (History.size() > 0) {
             try {
-                copy(t);
+                copy(t,oldShape);
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
         }
-        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) newShape).setIndex(ID++);
-        t.add(delete(((eg.edu.alexu.csd.oop.draw.cs04.Shape) oldShape).getIndex(),t),newShape);
+//        newShape.getProperties().put("ID",(double) ID++);
+        //((eg.edu.alexu.csd.oop.draw.cs04.Shape) newShape).setIndex(ID++);
+        t.add(History.get(History.size()-1).indexOf(oldShape),newShape);
+        //t.add(delete(((eg.edu.alexu.csd.oop.draw.cs04.Shape) oldShape).getIndex(),t),newShape);
         //t.remove(oldShape);
         History.add(++i,t);
     }
@@ -102,8 +105,21 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     @Override
     public List<Class<? extends Shape>> getSupportedShapes() {
-        ArrayList<eg.edu.alexu.csd.oop.draw.cs04.Shape> temp = new ArrayList<>();
-        return null;
+        ArrayList<Class<? extends Shape>> temp = new ArrayList<>();
+        try {
+            temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Circle")));
+            temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Ellipse")));
+            temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.LineSegment")));
+            temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Rectangle")));
+            temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Square")));
+            temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Triangle")));
+
+        }catch(Exception e){
+
+        }
+
+
+        return temp;
     }
 
     @Override
@@ -142,11 +158,13 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
         return -1;
     }
 
-    private void copy(ArrayList<Shape> t) throws CloneNotSupportedException {
+    private void copy(ArrayList<Shape> t,Shape delete) throws CloneNotSupportedException {
         ArrayList<Shape> o = History.get(i);
         for (Shape shape : o) {
-            Shape x = ((Shape) shape.clone());
-            t.add(x);
+            if(o!=shape) {
+                Shape x = ((Shape) shape.clone());
+                t.add(x);
+            }
         }
     }
 }

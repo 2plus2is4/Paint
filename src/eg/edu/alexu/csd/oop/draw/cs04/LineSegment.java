@@ -13,7 +13,7 @@ public class LineSegment extends Shape {
     public LineSegment(Point a, Point b){
         this.p1 = a;
         this.p2 = b;
-        this.setPosition(new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2));
+        this.setPosition(new Point(p1.x,p1.y));
         Map<String,Double> temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
@@ -25,7 +25,7 @@ public class LineSegment extends Shape {
     public LineSegment() {
         this.p1=new Point(0,0);
         this.p2=new Point(0,0);
-        this.setPosition(new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2));
+        this.setPosition(new Point(p1.x,p1.y));
         Map<String,Double>temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));

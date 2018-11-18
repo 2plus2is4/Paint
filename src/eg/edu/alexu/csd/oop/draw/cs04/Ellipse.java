@@ -51,8 +51,8 @@ public class Ellipse extends Shape {
     public void draw (Object canvas) {
         ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
         ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
-        ((GraphicsContext)canvas).strokeOval((this.position.x)-a, (this.position.y)-b, this.a.intValue(), this.b.intValue());
-        ((GraphicsContext)canvas).fillOval((this.position.x)-a, (this.position.y)-b, this.a.intValue(), this.b.intValue());
+        ((GraphicsContext)canvas).strokeOval((this.position.x), (this.position.y), this.a.intValue(), this.b.intValue());
+        ((GraphicsContext)canvas).fillOval((this.position.x), (this.position.y), this.a.intValue(), this.b.intValue());
     }
 
 }

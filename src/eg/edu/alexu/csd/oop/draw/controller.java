@@ -35,7 +35,7 @@ public class controller extends Application {
 
     private void drawShapes(GraphicsContext gc) {
         Rectangle c = new Rectangle(new Point(2,2),new Point(200,200),new Point(0,100));
-        c.setFillColor(Color.BLUE);
+        c.setFillColor(Color.BLACK);
         c.setColor(Color.YELLOW);
         c.draw(gc);
         /*gc.setLineWidth(5);

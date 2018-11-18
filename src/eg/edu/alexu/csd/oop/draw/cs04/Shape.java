@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
 import java.awt.*;
+import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.paint.Color;
 
@@ -88,12 +89,20 @@ public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
 
     @Override
     public void draw(Object canvas) {
-
     }
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        
-        return this;
+        Shape c = new Shape();
+        c.setColor(this.getColor());
+        c.setFillColor(this.getFillColor());
+        Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);
+        c.setPosition(p);
+        Map<String,Double> temp = new HashMap<>();
+        for(Map.Entry<String,Double> s:this.getProperties().entrySet()){
+            temp.put(s.getKey(),s.getValue());
+        }
+        c.setProperties(temp);
+        return c;
     }
 }

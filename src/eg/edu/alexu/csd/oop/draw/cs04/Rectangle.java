@@ -2,7 +2,6 @@ package eg.edu.alexu.csd.oop.draw.cs04;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,7 @@ public class Rectangle extends Shape{
     public Rectangle(Point a, Point b ,Point position){
         this.upleft = a;
         this.downright = b;
-        this.setPosition(new Point((downright.x-upleft.x)/2,(downright.y-upleft.y)/2));
+        this.setPosition(new Point(upleft.x,upleft.y));
         Map<String,Double> temp=new HashMap<>();
         temp.put("upleftx",(double)upleft.x);
         temp.put("uplefty",(double)upleft.y);

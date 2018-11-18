@@ -13,7 +13,7 @@ public class Triangle extends Shape {
         this.p2 = b;
         this.p3 = c;
         Point p4 =new Point((p3.x-p2.x)/2,(p3.y-p2.y)/2);
-        this.setPosition(new Point(Math.abs((p4.x-p1.x)*(2/3)),Math.abs((p4.y-p1.y)*(2/3))));
+        this.setPosition(new Point(Math.min(Math.min(p2.x,p3.x),p1.x),Math.min(Math.min(p2.y,p3.y),p1.y)));
         Map<String,Double> temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
@@ -28,7 +28,7 @@ public class Triangle extends Shape {
         this.p1=new Point(0,0);
         this.p2=new Point(0,0);
         this.p3=new Point(0,0);
-        this.setPosition(new Point((p1.x+p2.x)/2,(p1.y+p2.y)/2)) ;
+        this.setPosition(new Point(Math.min(Math.min(p2.x,p3.x),p1.x),Math.min(Math.min(p2.y,p3.y),p1.y)));
         Map<String,Double>temp=new HashMap<>();
         temp.put("p1x", ((double) p1.x));
         temp.put("p1y", ((double) p1.y));
