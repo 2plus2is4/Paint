@@ -13,9 +13,11 @@ import java.util.Map;
 public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     private ArrayList<ArrayList<Shape>> History = new ArrayList<>();
+    private ArrayList<Shape> shapes = new ArrayList<>();
     private GraphicsContext gc;
     private int i=-1;
     private int ID=1;
+    private int zize = 0;
 
     public GraphicsContext getGc() {
         return gc;
@@ -35,65 +37,76 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     @Override
     public void refresh(Object canvas) {
-        for (Shape x : History.get(i)) {
+        for (Shape x : shapes) {
             x.draw(canvas);
         }
     }
 
     @Override
     public void addShape(Shape shape) {
-        if (History.size() >= 20) {
-            History.remove(0);
+        delete();
+        if(History.size()==0){
+            ArrayList<Shape> x = new ArrayList<>(0);
+            i++;
+            History.add(x);
         }
+        if (History.size() >= 21) {
+            History.remove(0);
+
+            i=19;
+        }
+        shapes.add(shape);
         ArrayList<Shape> t = new ArrayList<>();
-        if (History.size() > 0) {
             try {
-                copy(t,null);
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
+                copy(t);
+            } catch (Exception e) {
+                System.out.println("exception");
         }
 //        shape.getProperties().put("ID",(double) ID++);
-        //((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
-        t.add(shape);
+//        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
+//        t.add(shape);
         History.add(++i,t);
     }
 
     @Override
     public void removeShape(Shape shape) {
-        if (History.size() >= 20) {
+        delete();
+        if (History.size() >= 21) {
             History.remove(0);
+            i--;
         }
+        shapes.remove(shape);
         ArrayList<Shape> t = new ArrayList<>();
-        if (History.size() > 0) {
             try {
-                copy(t,shape);
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
+                copy(t);
+            } catch (Exception e) {
+                System.out.println("exception");
             }
-        }
-        //temp.remove(shape);
+//        shape.getProperties().put("ID",(double) ID++);
+//        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
+//        t.add(shape);
         History.add(++i,t);
     }
 
     @Override
     public void updateShape(Shape oldShape, Shape newShape) {
-        if (History.size() >= 20) {
+        delete();
+        if (History.size() >= 21) {
             History.remove(0);
+            i--;
         }
+        shapes.add(shapes.indexOf(oldShape),newShape);
+        shapes.remove(oldShape);
         ArrayList<Shape> t = new ArrayList<>();
-        if (History.size() > 0) {
             try {
-                copy(t,oldShape);
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
+                copy(t);
+            } catch (Exception e) {
+                System.out.println("exception");
             }
-        }
-//        newShape.getProperties().put("ID",(double) ID++);
-        //((eg.edu.alexu.csd.oop.draw.cs04.Shape) newShape).setIndex(ID++);
-        t.add(History.get(History.size()-1).indexOf(oldShape),newShape);
-        //t.add(delete(((eg.edu.alexu.csd.oop.draw.cs04.Shape) oldShape).getIndex(),t),newShape);
-        //t.remove(oldShape);
+
+//        shape.getProperties().put("ID",(double) ID++);
+//        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
+//        t.add(shape);
         History.add(++i,t);
     }
 
@@ -124,14 +137,16 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     @Override
     public void undo() {
-        i--;
-        refresh(gc);
+        if(i>0) {
+            i--;
+        }
     }
 
     @Override
     public void redo() {
-        i++;
-        refresh(gc);
+        if(i<History.size()-1) {
+            i++;
+        }
     }
 
     @Override
@@ -144,27 +159,19 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     }
 
-    private int delete(int id, ArrayList<Shape> s){
-        int x=0;
-        for (Shape shape : s) {
-            if(((eg.edu.alexu.csd.oop.draw.cs04.Shape)shape).getIndex()==id ){
-                s.remove(shape);
-                return x;
-            }
-            x++;
+    private void delete(){
+        ArrayList<ArrayList<Shape>> h = new ArrayList<>();
+        for(int ii=0;ii<=i;ii++){
+            h.add(History.get(ii));
         }
-
-
-        return -1;
+        History = h;
     }
 
-    private void copy(ArrayList<Shape> t,Shape delete) throws CloneNotSupportedException {
-        ArrayList<Shape> o = History.get(i);
-        for (Shape shape : o) {
-            if(o!=shape) {
+    private void copy(ArrayList<Shape> t) throws CloneNotSupportedException {
+        for (Shape shape : shapes) {
                 Shape x = ((Shape) shape.clone());
                 t.add(x);
-            }
         }
     }
+
 }
