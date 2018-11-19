@@ -1,11 +1,12 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
-import java.awt.*;
+import eg.edu.alexu.csd.oop.draw.Shape;
+import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.paint.Color;
 
-public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
+public class MyShape implements Shape {
     public void setPosition(Point position) {
         this.position = position;
     }
@@ -37,14 +38,14 @@ public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
     private Color fillcolor;
     private int index;
 
-    public Shape(Point position, Map<String, Double> properties, Color color, Color fillcolor) {
+    public MyShape(Point position, Map<String, Double> properties, Color color, Color fillcolor) {
         this.position = position;
         this.properties = properties;
         this.color = color;
         this.fillcolor = fillcolor;
     }
 
-    public Shape() {
+    public MyShape() {
     }
 
     @Override
@@ -93,7 +94,7 @@ public class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        Shape c = new Shape();
+        MyShape c = new MyShape();
         c.setColor(this.getColor());
         c.setFillColor(this.getFillColor());
         Point p = new Point(((Point) this.getPosition()).x,((Point) this.getPosition()).y);

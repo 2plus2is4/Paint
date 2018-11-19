@@ -7,9 +7,18 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Circle extends Shape{
-    private Double radius;
-    private Point position;
+public class Circle extends MyShape{
+    private Double radius = 0.0;
+    private Point position = new Point(0,0);
+
+    public Double getRadius() {
+        return radius;
+    }
+
+    @Override
+    public Point getPosition() {
+        return position;
+    }
 
     public Circle(Double radius, Point position){
         this.radius = radius;
@@ -21,7 +30,7 @@ public class Circle extends Shape{
 
     public Circle() {
         this.radius = 0.0;
-        this.position = position;
+        this.position = new Point(0,0);
         Map<String,Double>temp=new HashMap<>();
         temp.put("radius",0.0);
         this.setProperties(temp);

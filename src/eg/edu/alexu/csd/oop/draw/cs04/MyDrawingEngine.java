@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs04;
 
+import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs04.*;
 import javafx.scene.canvas.GraphicsContext;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
+public class MyDrawingEngine implements DrawingEngine {
 
     private ArrayList<ArrayList<Shape>> History = new ArrayList<>();
     private ArrayList<Shape> shapes = new ArrayList<>();
@@ -27,7 +28,7 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
         this.gc = gc;
     }
 
-    public DrawingEngine() {
+    public MyDrawingEngine() {
         /*
         for (ArrayList<Shape> shapes : History) {
             shapes = new ArrayList<>();

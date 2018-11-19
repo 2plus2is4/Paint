@@ -7,14 +7,14 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Ellipse extends Shape {
-    private Double a, b;
-    private Point position;
+public class Ellipse extends MyShape {
+    private Double a = 0.0, b = 0.0;
+    private Point position = new Point(0,0);
 
     public Ellipse(Double a, Double b ,Point position){
         this.a = a;
         this.b = b;
-        this.setPosition(this.position);
+        this.setPosition(position);
         Map<String,Double> temp=new HashMap<>();
         temp.put("a",a);
         temp.put("b",b);
@@ -24,7 +24,7 @@ public class Ellipse extends Shape {
     public Ellipse() {
         this.a = 0.0;
         this.b = 0.0;
-        this.setPosition(this.position);
+        this.position = new Point(0,0);
         Map<String,Double>temp=new HashMap<>();
         temp.put("a",0.0);
         temp.put("b",0.0);

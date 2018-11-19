@@ -10,7 +10,7 @@ import javafx.scene.shape.Line;
 
 
 public class Square extends Rectangle {
-    private Point upleft, downright;
+    private Point upleft = new Point(0,0), downright = new Point(0,0);
 
     public Square(Point a, Point b ,Point position){
         super(a,b,position);

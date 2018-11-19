@@ -7,8 +7,8 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LineSegment extends Shape {
-    private Point p1,p2;
+public class LineSegment extends MyShape {
+    private Point p1 = new Point(0,0),p2 = new Point(0,0);
 
     public LineSegment(Point a, Point b){
         this.p1 = a;

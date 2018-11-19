@@ -6,8 +6,8 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rectangle extends Shape{
-    private Point upleft, downright;
+public class Rectangle extends MyShape{
+    private Point upleft = new Point(0,0), downright = new Point(0,0);
 
     public Rectangle(Point a, Point b ,Point position){
         this.upleft = a;

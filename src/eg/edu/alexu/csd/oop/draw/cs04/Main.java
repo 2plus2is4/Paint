@@ -24,8 +24,5 @@ public class Main {
         temp.put("radius",0.5);
         circle.setProperties(temp);
         */
-        DrawingEngine de = new DrawingEngine();
-
-        Triangle t=new Triangle();
     }
 }
