@@ -17,8 +17,8 @@ public class MyDrawingEngine implements DrawingEngine {
     private ArrayList<Shape> shapes = new ArrayList<>();
     private GraphicsContext gc;
     private int i = -1;
-    private int undoCounter = 0;
-    private int redoCounter = 0;
+//    private int undoCounter = 0;
+//    private int redoCounter = 0;
 
     public GraphicsContext getGc() {
         return gc;
@@ -66,7 +66,10 @@ public class MyDrawingEngine implements DrawingEngine {
     public void removeShape(Shape shape) {
         delete();
 
+        History.get(i).remove(shapes.indexOf(shape));
+        History.get(i).add(shape);
         shapes.remove(shape);
+
         ArrayList<Shape> t = new ArrayList<>();
         try {
             copy(t);
@@ -119,8 +122,32 @@ public class MyDrawingEngine implements DrawingEngine {
 
     @Override
     public void undo() {
-        if (i>0) {
+        if (i > 0) {
             i--;
+        }
+        if (i < History.size() - 1 && i > -1) {
+            if ((i < History.size() - 1)) {
+                ArrayList<Shape> t = new ArrayList<>();
+                if (History.get(i).size() > shapes.size()) {
+                    for (int j = shapes.size(); j < History.get(i).size(); j++) {
+                        shapes.add(History.get(i).get(j));
+
+                        try {
+                            History.get(i).add(j, ((Shape) History.get(i).get(j).clone()));
+                        } catch (CloneNotSupportedException e) {
+                            e.printStackTrace();
+                        }
+
+                        History.get(i).remove(j + 1);
+                    }
+                } else {
+                    for (int j = 1; j <= History.get(i).size(); j++) {
+                        t.add(shapes.get(j));
+                    }
+                    shapes = t;
+                }
+
+            }
         }
     }
 
@@ -143,18 +170,33 @@ public class MyDrawingEngine implements DrawingEngine {
 
     private void delete() {
 
-        if(i<History.size()-1 && i>-1) {
-            if((i<History.size()-1)|| (shapes.size()!=History.get(i).size())) {
-                ArrayList<Shape> t = new ArrayList<>();
-                for (int j = 1; j <= History.get(i).size(); j++) {
-                    t.add(shapes.get(j));
-                }
-                shapes = t;
-            }
-        }
+//        if (i < History.size() - 1 && i > -1) {
+//            if ((i < History.size() - 1)) {
+//                ArrayList<Shape> t = new ArrayList<>();
+//                if (History.get(i).size() > shapes.size()) {
+//                    for (int j = shapes.size(); j < History.get(i).size(); j++) {
+//                        shapes.add(History.get(i).get(j));
+//
+//                        try {
+//                            History.get(i).add(j, ((Shape) History.get(i).get(j).clone()));
+//                        } catch (CloneNotSupportedException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        History.get(i).remove(j + 1);
+//                    }
+//                } else {
+//                    for (int j = 1; j <= History.get(i).size(); j++) {
+//                        t.add(shapes.get(j));
+//                    }
+//                    shapes = t;
+//                }
+//
+//            }
+//        }
         /*
 
-*/
+         */
         ArrayList<ArrayList<Shape>> h = new ArrayList<>();
         for (int ii = 0; ii <= i; ii++) {
             h.add(History.get(ii));
@@ -163,7 +205,7 @@ public class MyDrawingEngine implements DrawingEngine {
 
         if (History.size() >= 21) {
             History.remove(0);
-                i--;
+            i--;
         }
     }
 

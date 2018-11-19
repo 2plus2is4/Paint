@@ -8,21 +8,21 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
-        Circle circle = new Circle();
-        /*
-        Frame f = new Frame("DrawOOP");
-        f.setSize(800,800);
-        f.setResizable(false);
-        f.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-        f.setVisible(true);
-        Map<String,Double> temp = new HashMap<>();
-        temp.put("radius",0.5);
-        circle.setProperties(temp);
-        */
+        MyDrawingEngine engine = new MyDrawingEngine();
+        Point p = new Point(0,0);
+        Circle c1 = new Circle(1.0,p);
+        Circle c2 = new Circle(2.0,p);
+        Circle c3 = new Circle(3.0,p);
+        Circle c4 = new Circle(4.0,p);
+        engine.addShape(c1);
+        engine.addShape(c2);
+        engine.addShape(c3);
+        engine.removeShape(c3);
+        engine.undo();
+        engine.updateShape(c3,c4);
+        engine.undo();
+        engine.removeShape(c1);
+        System.out.println(engine.getShapes().length);
+        //engine.addShape(c4);
     }
 }
