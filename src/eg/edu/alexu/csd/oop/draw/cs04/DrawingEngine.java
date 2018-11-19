@@ -15,9 +15,9 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
     private ArrayList<ArrayList<Shape>> History = new ArrayList<>();
     private ArrayList<Shape> shapes = new ArrayList<>();
     private GraphicsContext gc;
-    private int i=-1;
-    private int ID=1;
-    private int zize = 0;
+    private int i = -1;
+    private int undoCounter = 0;
+    private int redoCounter = 0;
 
     public GraphicsContext getGc() {
         return gc;
@@ -45,69 +45,50 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
     @Override
     public void addShape(Shape shape) {
         delete();
-        if(History.size()==0){
+        if (History.size() == 0) {
             ArrayList<Shape> x = new ArrayList<>(0);
             i++;
             History.add(x);
         }
-        if (History.size() >= 21) {
-            History.remove(0);
 
-            i=19;
-        }
         shapes.add(shape);
         ArrayList<Shape> t = new ArrayList<>();
-            try {
-                copy(t);
-            } catch (Exception e) {
-                System.out.println("exception");
+        try {
+            copy(t);
+        } catch (Exception e) {
+            System.out.println("exception");
         }
-//        shape.getProperties().put("ID",(double) ID++);
-//        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
-//        t.add(shape);
-        History.add(++i,t);
+        History.add(++i, t);
     }
 
     @Override
     public void removeShape(Shape shape) {
         delete();
-        if (History.size() >= 21) {
-            History.remove(0);
-            i--;
-        }
+
         shapes.remove(shape);
         ArrayList<Shape> t = new ArrayList<>();
-            try {
-                copy(t);
-            } catch (Exception e) {
-                System.out.println("exception");
-            }
-//        shape.getProperties().put("ID",(double) ID++);
-//        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
-//        t.add(shape);
-        History.add(++i,t);
+        try {
+            copy(t);
+        } catch (Exception e) {
+            System.out.println("exception");
+        }
+        History.add(++i, t);
     }
 
     @Override
     public void updateShape(Shape oldShape, Shape newShape) {
         delete();
-        if (History.size() >= 21) {
-            History.remove(0);
-            i--;
-        }
-        shapes.add(shapes.indexOf(oldShape),newShape);
+
+        int ind = shapes.indexOf(oldShape);
+        shapes.add(ind, newShape);
         shapes.remove(oldShape);
         ArrayList<Shape> t = new ArrayList<>();
-            try {
-                copy(t);
-            } catch (Exception e) {
-                System.out.println("exception");
-            }
-
-//        shape.getProperties().put("ID",(double) ID++);
-//        ((eg.edu.alexu.csd.oop.draw.cs04.Shape) shape).setIndex(ID++);
-//        t.add(shape);
-        History.add(++i,t);
+        try {
+            copy(t);
+        } catch (Exception e) {
+            System.out.println("exception");
+        }
+        History.add(++i, t);
     }
 
     @Override
@@ -127,7 +108,7 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
             temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Square")));
             temp.add(((Class<? extends Shape>) Class.forName("eg.edu.alexu.csd.oop.draw.cs04.Triangle")));
 
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -137,14 +118,14 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     @Override
     public void undo() {
-        if(i>0) {
+        if (i>0) {
             i--;
         }
     }
 
     @Override
     public void redo() {
-        if(i<History.size()-1) {
+        if (i < History.size() - 1) {
             i++;
         }
     }
@@ -159,18 +140,36 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
 
     }
 
-    private void delete(){
+    private void delete() {
+
+        if(i<History.size()-1 && i>-1) {
+            if((i<History.size()-1)|| (shapes.size()!=History.get(i).size())) {
+                ArrayList<Shape> t = new ArrayList<>();
+                for (int j = 1; j <= History.get(i).size(); j++) {
+                    t.add(shapes.get(j));
+                }
+                shapes = t;
+            }
+        }
+        /*
+
+*/
         ArrayList<ArrayList<Shape>> h = new ArrayList<>();
-        for(int ii=0;ii<=i;ii++){
+        for (int ii = 0; ii <= i; ii++) {
             h.add(History.get(ii));
         }
         History = h;
+
+        if (History.size() >= 21) {
+            History.remove(0);
+                i--;
+        }
     }
 
     private void copy(ArrayList<Shape> t) throws CloneNotSupportedException {
         for (Shape shape : shapes) {
-                Shape x = ((Shape) shape.clone());
-                t.add(x);
+            Shape x = ((Shape) shape.clone());
+            t.add(x);
         }
     }
 
