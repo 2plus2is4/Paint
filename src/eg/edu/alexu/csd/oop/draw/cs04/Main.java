@@ -18,10 +18,12 @@ public class Main {
         engine.addShape(c2);
         engine.addShape(c3);
         engine.removeShape(c3);
-        engine.undo();
-        engine.updateShape(c3,c4);
-        engine.undo();
+        engine.removeShape(c2);
         engine.removeShape(c1);
+//        engine.undo();
+//        engine.updateShape(c3,c4);
+//        engine.undo();
+//        engine.removeShape(c1);
         System.out.println(engine.getShapes().length);
         //engine.addShape(c4);
     }

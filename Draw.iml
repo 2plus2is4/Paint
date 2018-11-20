@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="file:///home/paula/Documents/gen_working_space/eclipse_java_ws/Draw/test_supporting_files.jar" />
+    <libelement value="file://C:/WorkSpace/OOP_TAs-oop-course/test_supporting_files.jar" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
     </src_description>
@@ -26,15 +26,13 @@
     <orderEntry type="module-library">
       <library name="test_supporting_files.jar">
         <CLASSES>
-          <root url="file:///home/paula/Documents/gen_working_space/eclipse_java_ws/Draw/test_supporting_files.jar" />
+          <root url="file://C:/WorkSpace/OOP_TAs-oop-course/test_supporting_files.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="RoundRectangle" level="project" />
     <orderEntry type="library" name="test_supporting_files" level="project" />
     <orderEntry type="library" name="hamcrest-core-1.3" level="project" />
-    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
   </component>
 </module>

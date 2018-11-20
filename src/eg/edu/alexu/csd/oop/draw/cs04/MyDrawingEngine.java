@@ -15,6 +15,8 @@ public class MyDrawingEngine implements DrawingEngine {
 
     private ArrayList<ArrayList<Shape>> History = new ArrayList<>();
     private ArrayList<Shape> shapes = new ArrayList<>();
+    private ArrayList<Morph> steps = new ArrayList<>();
+    int stps = -1;
     private GraphicsContext gc;
     private int i = -1;
 //    private int undoCounter = 0;
@@ -51,7 +53,6 @@ public class MyDrawingEngine implements DrawingEngine {
             i++;
             History.add(x);
         }
-
         shapes.add(shape);
         ArrayList<Shape> t = new ArrayList<>();
         try {
@@ -60,16 +61,17 @@ public class MyDrawingEngine implements DrawingEngine {
             System.out.println("exception");
         }
         History.add(++i, t);
+        steps.add(new Morph(shape, 'a', History.get(i).size()-1));
+        stps++;
     }
 
     @Override
     public void removeShape(Shape shape) {
         delete();
-
-        History.get(i).remove(shapes.indexOf(shape));
+        int x = shapes.indexOf(shape);
+        History.get(i).remove(x);
         History.get(i).add(shape);
         shapes.remove(shape);
-
         ArrayList<Shape> t = new ArrayList<>();
         try {
             copy(t);
@@ -77,12 +79,13 @@ public class MyDrawingEngine implements DrawingEngine {
             System.out.println("exception");
         }
         History.add(++i, t);
+        steps.add(new Morph(shape, 'r', x));
+        stps++;
     }
 
     @Override
     public void updateShape(Shape oldShape, Shape newShape) {
         delete();
-
         int ind = shapes.indexOf(oldShape);
         shapes.add(ind, newShape);
         shapes.remove(oldShape);
@@ -93,12 +96,18 @@ public class MyDrawingEngine implements DrawingEngine {
             System.out.println("exception");
         }
         History.add(++i, t);
+        Morph m = new Morph(newShape, 'u', History.get(i).size()-1);
+        m.setSec(oldShape);
+        steps.add(m);
+        stps++;
     }
 
     @Override
     public Shape[] getShapes() {
-        Shape[] x = new Shape[History.get(i).size()];
-        return History.get(i).toArray(x);
+//        Shape[] x = new Shape[History.get(i).size()];
+//        return History.get(i).toArray(x);
+        Shape[] x = new Shape[shapes.size()];
+        return shapes.toArray(x);
     }
 
     @Override
@@ -124,37 +133,86 @@ public class MyDrawingEngine implements DrawingEngine {
     public void undo() {
         if (i > 0) {
             i--;
-        }
-        if (i < History.size() - 1 && i > -1) {
-            if ((i < History.size() - 1)) {
-                ArrayList<Shape> t = new ArrayList<>();
-                if (History.get(i).size() > shapes.size()) {
-                    for (int j = shapes.size(); j < History.get(i).size(); j++) {
-                        shapes.add(History.get(i).get(j));
-
-                        try {
-                            History.get(i).add(j, ((Shape) History.get(i).get(j).clone()));
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
-
-                        History.get(i).remove(j + 1);
+            if (i < History.size() - 1 && i > -1) {
+                if ((i < History.size() - 1)) {
+                    //stps--;
+                    Morph temp = steps.get(stps);
+                    char c = temp.getOperation();
+                    if(c=='a'){
+                        shapes.remove(temp.getIndex());
+                    }else if(c=='r'){
+                        shapes.add(temp.getIndex(),temp.getShape());
+                    }else{
+                        shapes.remove(temp.getIndex());
+                        shapes.add(temp.getIndex(),temp.getSec());
                     }
-                } else {
-                    for (int j = 1; j <= History.get(i).size(); j++) {
-                        t.add(shapes.get(j));
-                    }
-                    shapes = t;
+                    stps--;
+//                ArrayList<Shape> t = new ArrayList<>();
+//                if (History.get(i).size() > shapes.size()) {
+//                    for (int j = shapes.size(); j < History.get(i).size(); j++) {
+//                        shapes.add(History.get(i).get(j));
+//
+//                        try {
+//                            History.get(i).add(j, ((Shape) History.get(i).get(j).clone()));
+//                        } catch (CloneNotSupportedException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        History.get(i).remove(j + 1);
+//                    }
+//                } else {
+//                    for (int j = 1; j <= History.get(i).size(); j++) {
+//                        t.add(shapes.get(j));
+//                    }
+//                    shapes = t;
+//                }
+
                 }
-
             }
         }
+
     }
 
     @Override
     public void redo() {
         if (i < History.size() - 1) {
             i++;
+        }
+        if (i <= History.size() - 1 && i > -1) {
+            if ((i <= History.size() - 1)) {
+                stps++;
+                Morph temp = steps.get(stps);
+                char c = temp.getOperation();
+                if(c=='a'){
+                    shapes.add(temp.getIndex(),temp.getShape());
+                }else if(c=='r'){
+                    shapes.remove(temp.getIndex());
+                }else{
+                    shapes.remove(temp.getIndex());
+                    shapes.add(temp.getIndex(),temp.getShape());
+                }
+                //stps--;
+//                ArrayList<Shape> t = new ArrayList<>();
+//                if (History.get(i).size() > shapes.size()) {
+//                    for (int j = shapes.size(); j < History.get(i).size(); j++) {
+//                        shapes.add(History.get(i).get(j));
+//
+//                        try {
+//                            History.get(i).add(j, ((Shape) History.get(i).get(j).clone()));
+//                        } catch (CloneNotSupportedException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        History.get(i).remove(j + 1);
+//                    }
+//                } else {
+//                    for (int j = 1; j <= History.get(i).size(); j++) {
+//                        t.add(shapes.get(j));
+//                    }
+//                    shapes = t;
+//                }
+
+            }
         }
     }
 
@@ -197,11 +255,20 @@ public class MyDrawingEngine implements DrawingEngine {
         /*
 
          */
-        ArrayList<ArrayList<Shape>> h = new ArrayList<>();
-        for (int ii = 0; ii <= i; ii++) {
-            h.add(History.get(ii));
+        if(History.size()>0 && steps.size()>0) {
+            ArrayList<ArrayList<Shape>> h = new ArrayList<>();
+            ArrayList<Morph> s = new ArrayList<>();
+            for (int ii = 0; ii <= i; ii++) {
+                h.add(History.get(ii));
+
+            }
+            History = h;
+            for (int ii = 0; ii <= stps; ii++) {
+                s.add(steps.get(ii));
+            }
+            steps=s;
+
         }
-        History = h;
 
         if (History.size() >= 21) {
             History.remove(0);
