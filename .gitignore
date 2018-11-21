@@ -53,3 +53,7 @@ dkms.conf
 
 # IntelliJ files
 .idea/*
+
+#TestFiles
+*.json
+*.xml

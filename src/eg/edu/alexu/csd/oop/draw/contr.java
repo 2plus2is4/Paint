@@ -1,65 +1,50 @@
 package eg.edu.alexu.csd.oop.draw;
 
-
 import eg.edu.alexu.csd.oop.draw.cs04_06.Circle;
+import eg.edu.alexu.csd.oop.draw.cs04_06.MyDrawingEngine;
 import eg.edu.alexu.csd.oop.draw.cs04_06.Rectangle;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.ArcType;
 
-import javafx.stage.Stage;
+import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class contr implements Initializable {
 
-import java.awt.Point;
-import java.io.IOException;
+    @FXML
+    Pane pane;
+    private MyDrawingEngine engine = new MyDrawingEngine();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-public class controller extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-//        primaryStage.setTitle("Drawing Operations Test");
-//        FXMLLoader fxmlLoader =
-//        BorderPane root = new BorderPane();
-//        primaryStage.setScene(new Scene(root));
-//        Canvas canvas = new Canvas(700, 700);
-//        GraphicsContext gc = canvas.getGraphicsContext2D();
-//        drawShapes(gc);
-//        root.getChildren().add(canvas);
-//        drawShapes2(gc);
-//        primaryStage.show();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("file.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        contr contr = fxmlLoader.getController();
-        contr.setting();
-        primaryStage.setTitle("Drawing Operations Test");
-        primaryStage.setResizable(false);
-        Scene scene = new Scene(root, 700, 700);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void setting(){
+        Canvas canvas = new Canvas(700, 700);
+        GraphicsContext gc = canvas.getGraphicsContext2D();;
+        engine.setGc(canvas.getGraphicsContext2D());
+        gc = engine.getGc();
+        drawShapes(engine.getGc());
+        pane.getChildren().add(canvas);
+        drawShapes2(engine.getGc());
     }
 
     private void drawShapes(GraphicsContext gc) {
         Rectangle c = new Rectangle(new Point(2,2),new Point(200,200));
-        c.setFillColor(Color.BLACK);
-        c.setColor(Color.YELLOW);
+        c.setUpleft(new Point(2,2));
+        c.setDownright(new Point(200,200));
+        c.setFillColor(javafx.scene.paint.Color.BLACK);
+        c.setColor(javafx.scene.paint.Color.YELLOW);
         c.draw(gc);
         Circle s = new Circle(new Point(5,5),new Point(30,30));
-        s.setColor(Color.YELLOW);
-        s.setFillColor(Color.YELLOW);
+        s.setColor(javafx.scene.paint.Color.YELLOW);
+        s.setFillColor(javafx.scene.paint.Color.YELLOW);
         s.draw(gc);
         /*gc.setLineWidth(5);
         gc.strokeLine(40, 10, 10, 40);
@@ -83,7 +68,7 @@ public class controller extends Application {
 
     private void drawShapes2(GraphicsContext gc) {
         Rectangle c = new Rectangle(new Point(200,200),new Point(250,250));
-        c.setFillColor(Color.GREEN);
+        c.setFillColor(javafx.scene.paint.Color.GREEN);
         c.setColor(Color.YELLOW);
         c.draw(gc);
         /*gc.setLineWidth(5);

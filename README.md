@@ -1,4 +1,3 @@
-# shithappens
-read the title!\
-bitch.
+# Paint
+read the title!
 
