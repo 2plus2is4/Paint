@@ -129,6 +129,7 @@ public class Controller {
     }
 
     public void begin(Stage stage1){
+        stroke.getCustomColors();
         Canvas canvas = new Canvas(700, 700);
         //engine = new MyDrawingEngine();
         engine.setGc(canvas.getGraphicsContext2D());
@@ -201,11 +202,13 @@ public class Controller {
     public void un(ActionEvent e){
         engine.undo();
         //begin(stage);
+        engine.getGc().clearRect(0, 0, 800, 800);
         engine.refresh(graphicsContext);
     }
 
     public void re(ActionEvent e){
         engine.redo();
+        engine.getGc().clearRect(0, 0, 800, 800);
         engine.refresh(graphicsContext);
     }
 
@@ -227,16 +230,16 @@ public class Controller {
         if(currentShape.equals("Circle")){
             Circle c = new Circle();
             //System.out.println(Integer.parseInt(x1.getText()));
-            c.setDownright(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
-            c.setUpleft(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c.setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c.setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
             engine.addShape(c);
             c.draw(engine.getGc());
         }else if(currentShape.equals("Ellipse")){
             Ellipse c = new Ellipse();
-            c.setUpleft(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
-            c.setDownright(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            c.setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            c.setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
             engine.addShape(c);

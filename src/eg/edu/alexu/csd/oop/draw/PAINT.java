@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.oop.draw;
 
-import eg.edu.alexu.csd.oop.draw.cs04.Rectangle;
+import eg.edu.alexu.csd.oop.draw.cs04_06.Rectangle;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class PAINT {
     public static void drawShapes(GraphicsContext gc) {
-        Rectangle c = new Rectangle(new Point(2,2),new Point(200,200),new Point(0,100));
+        Rectangle c = new Rectangle(new Point(2,2),new Point(200,200));
         c.setFillColor(javafx.scene.paint.Color.BLACK);
         c.setColor(Color.YELLOW);
         c.draw(gc);

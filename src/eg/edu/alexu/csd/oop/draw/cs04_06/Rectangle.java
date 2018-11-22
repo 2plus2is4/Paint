@@ -69,7 +69,7 @@ public class Rectangle extends MyShape{
     public void draw (Object canvas) {
         ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
         ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
-        ((GraphicsContext) canvas).strokeRect(upleft.x,upleft.y,downright.x-upleft.x,downright.y-upleft.y);
-        ((GraphicsContext) canvas).fillRect(upleft.x,upleft.y,downright.x-upleft.x,downright.y-upleft.y);
+        ((GraphicsContext) canvas).strokeRect(upleft.x,upleft.y,downright.x,downright.y);
+        ((GraphicsContext) canvas).fillRect(upleft.x,upleft.y,downright.x,downright.y);
     }
 }

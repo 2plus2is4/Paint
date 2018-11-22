@@ -174,7 +174,7 @@ public class json {
                         c.setColor(new Color(Double.parseDouble(d2[0]),
                                 Double.parseDouble(d2[1]),
                                 Double.parseDouble(d2[2]),
-                                Double.parseDouble(d[3])));
+                                Double.parseDouble(d2[3])));
                         c.setFillColor(new Color(Double.parseDouble(d3[0]),
                                 Double.parseDouble(d3[1]),
                                 Double.parseDouble(d3[2]),
@@ -188,7 +188,7 @@ public class json {
                         c.setColor(new Color(Double.parseDouble(d2[0]),
                                 Double.parseDouble(d2[1]),
                                 Double.parseDouble(d2[2]),
-                                Double.parseDouble(d[3])));
+                                Double.parseDouble(d2[3])));
                         c.setFillColor(new Color(Double.parseDouble(d3[0]),
                                 Double.parseDouble(d3[1]),
                                 Double.parseDouble(d3[2]),

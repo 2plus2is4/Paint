@@ -23,8 +23,8 @@ public class Circle extends MyShape{
         this.getProperties().put("downrighty",(double)downright.y);
     }
 
-    public Circle(Point downright, Point position){
-        this.upleft = position;
+    public Circle(Point upleft, Point downright){
+        this.upleft = upleft;
         this.downright = downright;
         Map<String,Double>temp=new HashMap<>();
         temp.put("upleftx",(double)upleft.x);
@@ -73,8 +73,8 @@ public class Circle extends MyShape{
         ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
         ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
         ((GraphicsContext) canvas).setLineWidth(5);
-        ((GraphicsContext)canvas).strokeOval((this.upleft.x), (this.upleft.y),((upleft.x-downright.x)/2), ((upleft.x-downright.x)/2));
-        ((GraphicsContext)canvas).fillOval((this.upleft.x), (this.upleft.y),((upleft.x-downright.x)/2), ((upleft.x-downright.x)/2));
+        ((GraphicsContext)canvas).strokeOval((this.upleft.x), (this.upleft.y),(downright.x), (downright.x));
+        ((GraphicsContext)canvas).fillOval((this.upleft.x), (this.upleft.y),(downright.x), ((downright.x)));
 //        gc.setStroke((javafx.scene.paint.Paint) this.getColor());
 //        gc.setFill((Paint) this.getFillColor());
 //        gc.setLineWidth(5);
