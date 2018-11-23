@@ -58,13 +58,17 @@ public class XML {
                     }
                 }else
                 if (shape.getProperties() != null) {
-                    s.setAttribute("upleftx", shape.getProperties().get("upleftx").toString());
-                    s.setAttribute("uplefty", shape.getProperties().get("uplefty").toString());
-                    s.setAttribute("downrightx", shape.getProperties().get("downrightx").toString());
-                    s.setAttribute("downrighty", shape.getProperties().get("downrightx").toString());
-                    if (shape.getProperties().get("t3x") != null) {
-                        s.setAttribute("t3x", shape.getProperties().get("t3x").toString());
-                        s.setAttribute("t3y", shape.getProperties().get("t3y").toString());
+//                    s.setAttribute("upleftx", shape.getProperties().get("upleftx").toString());
+//                    s.setAttribute("uplefty", shape.getProperties().get("uplefty").toString());
+//                    s.setAttribute("downrightx", shape.getProperties().get("downrightx").toString());
+//                    s.setAttribute("downrighty", shape.getProperties().get("downrighty").toString());
+//                    if (shape.getProperties().get("t3x") != null) {
+//                        s.setAttribute("t3x", shape.getProperties().get("t3x").toString());
+//                        s.setAttribute("t3y", shape.getProperties().get("t3y").toString());
+//                    }
+                    for(Map.Entry<String,Double> ss:shape.getProperties().entrySet()){
+                        if((ss.getValue()!=null))
+                        s.setAttribute(ss.getKey(),ss.getValue().toString());
                     }
                 }
                 if (shape.getColor() != null ) {
