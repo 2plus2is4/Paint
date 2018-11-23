@@ -70,11 +70,12 @@ public class Circle extends MyShape{
     @Override
     public void draw (Object canvas) {
 //        GraphicsContext gc = (GraphicsContext) ((Canvas) canvas).getGraphicsContext2D();
+        int m = Math.max(downright.x,downright.y);
         ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
         ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
         ((GraphicsContext) canvas).setLineWidth(5);
-        ((GraphicsContext)canvas).strokeOval((this.upleft.x), (this.upleft.y),(downright.x), (downright.x));
-        ((GraphicsContext)canvas).fillOval((this.upleft.x), (this.upleft.y),(downright.x), ((downright.x)));
+        ((GraphicsContext)canvas).strokeOval((this.upleft.x), (this.upleft.y),m,m);
+        ((GraphicsContext)canvas).fillOval((this.upleft.x), (this.upleft.y),m,m);
 //        gc.setStroke((javafx.scene.paint.Paint) this.getColor());
 //        gc.setFill((Paint) this.getFillColor());
 //        gc.setLineWidth(5);

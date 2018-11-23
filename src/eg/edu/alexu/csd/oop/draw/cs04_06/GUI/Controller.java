@@ -4,6 +4,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs04_06.*;
 import eg.edu.alexu.csd.oop.draw.cs04_06.Rectangle;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -102,9 +103,14 @@ public class Controller {
     boolean shapeupdate = false;
     Canvas canvas;
     Stage stage;
-
+    Point fclick;
+    Point sclick;
+    Point tclick;
+    boolean dragged;
+    int triii=0;
 
     @FXML void initialize(){
+        stroke.setValue(Color.BLACK);
 //        engine = new MyDrawingEngine();
 //        graphicsContext = engine.getGc();
 //        canvas = new Canvas(500,500);
@@ -135,45 +141,62 @@ public class Controller {
         engine.setGc(canvas.getGraphicsContext2D());
         graphicsContext = engine.getGc();
         //canvas.setStyle("-fx-background-color: white");
-        pane.getChildren().add(canvas);
+        if(!pane.getChildren().isEmpty())
+            pane.getChildren().remove(0);
+        pane.getChildren().add(0,canvas);
+        engine.refresh(engine.getGc());
         //drawShapes(engine.getGc());
         stage = stage1;
     }
 
-    private void drawShapes(GraphicsContext gc) {
-        Rectangle c = new Rectangle(new Point(2,2),new Point(200,200));
-        c.setUpleft(new Point(2,2));
-        c.setDownright(new Point(200,200));
-        c.setFillColor(javafx.scene.paint.Color.BLACK);
-        c.setColor(javafx.scene.paint.Color.YELLOW);
-        c.draw(gc);
-        Circle s = new Circle(new Point(5,5),new Point(30,30));
-        s.setColor(javafx.scene.paint.Color.YELLOW);
-        s.setFillColor(javafx.scene.paint.Color.YELLOW);
-        s.draw(gc);
-        /*gc.setLineWidth(5);
-        gc.strokeLine(40, 10, 10, 40);
-        gc.fillOval(10, 60, 30, 30);
-        gc.strokeOval(10, 60, 30, 30);
-        gc.fillRoundRect(110, 60, 30, 30, 10, 10);
-        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
-        gc.fillArc(10, 110, 30, 30, 45, 240, ArcType.OPEN);
-        gc.fillArc(60, 110, 30, 30, 45, 240, ArcType.CHORD);
-        gc.fillArc(110, 110, 30, 30, 45, 240, ArcType.ROUND);
-        gc.strokeArc(10, 160, 30, 30, 45, 240, ArcType.OPEN);
-        gc.strokeArc(60, 160, 30, 30, 45, 240, ArcType.CHORD);
-        gc.strokeArc(110, 160, 30, 30, 45, 240, ArcType.ROUND);
-        gc.fillPolygon(new double[]{10, 40, 10, 40},
-                new double[]{210, 210, 240, 240}, 4);
-        gc.strokePolygon(new double[]{60, 90, 60, 90},
-                new double[]{210, 210, 240, 240}, 4);
-        gc.strokePolyline(new double[]{110, 140, 110, 140},
-                new double[]{210, 210, 240, 240}, 4);*/
-    }
-
     public void touchCanvas(MouseEvent event){
-        if(shapeSelected){
-
+        //label.setText(event.getEventType().getName());
+        String op = event.getEventType().getName();
+        System.out.println(op);
+        if(shapeSelected && !currentShape.equals("Triangle")){
+            if(op.equals("MOUSE_PRESSED")){
+                fclick = new Point(((int) event.getX()), ((int) event.getY()));
+                x1.setText(((Integer) fclick.x).toString());
+                y1.setText(((Integer) fclick.y).toString());
+            }
+            if(op.equals("MOUSE_DRAGGED")){
+                dragged = true;
+                sclick = new Point(((int) event.getX()), ((int) event.getY()));
+            }
+            if(op.equals("MOUSE_RELEASED") && dragged){
+                ActionEvent event1 = new ActionEvent();
+                dragged = false;
+                begin(stage);
+                x2.setText(((Integer) sclick.x).toString());
+                y2.setText(((Integer) sclick.y).toString());
+                DrAW(event1);
+            }else if(dragged){
+                ActionEvent event1 = new ActionEvent();
+                begin(stage);
+                x2.setText(((Integer) sclick.x).toString());
+                y2.setText(((Integer) sclick.y).toString());
+                DrAW(event1);
+            }
+        }else if(shapeSelected && currentShape.equals("Triangle")){
+            if(op.equals("MOUSE_PRESSED")){
+                triii++;
+            }
+            if(triii==1){
+                fclick = new Point(((int) event.getX()), ((int) event.getY()));
+                x1.setText(((Integer) fclick.x).toString());
+                y1.setText(((Integer) fclick.y).toString());
+            }else if(triii==2){
+                sclick = new Point(((int) event.getX()), ((int) event.getY()));
+                x2.setText(((Integer) sclick.x).toString());
+                y2.setText(((Integer) sclick.y).toString());
+            }else if(triii==3){
+                triii=0;
+                tclick = new Point(((int) event.getX()), ((int) event.getY()));
+                x3.setText(((Integer) tclick.x).toString());
+                y3.setText(((Integer) tclick.y).toString());
+                ActionEvent event1 = new ActionEvent();
+                DrAW(event1);
+            }
         }
     }
 
@@ -195,20 +218,20 @@ public class Controller {
         if (f != null) {
             engine.load(f.getAbsolutePath());
         }
+        begin(stage);
         engine.refresh(engine.getGc());
 
     }
 
     public void un(ActionEvent e){
         engine.undo();
-        //begin(stage);
-        engine.getGc().clearRect(0, 0, 800, 800);
+        begin(stage);
         engine.refresh(graphicsContext);
     }
 
     public void re(ActionEvent e){
         engine.redo();
-        engine.getGc().clearRect(0, 0, 800, 800);
+        begin(stage);
         engine.refresh(graphicsContext);
     }
 
@@ -227,56 +250,60 @@ public class Controller {
     }
 
     public void DrAW(ActionEvent event){
+        MyShape c = new MyShape();
         if(currentShape.equals("Circle")){
-            Circle c = new Circle();
+            c = new Circle();
             //System.out.println(Integer.parseInt(x1.getText()));
-            c.setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
-            c.setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Circle)c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            ((Circle)c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
-            engine.addShape(c);
+//            engine.addShape(c);
             c.draw(engine.getGc());
         }else if(currentShape.equals("Ellipse")){
-            Ellipse c = new Ellipse();
-            c.setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
-            c.setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c = new Ellipse();
+            ((Ellipse) c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Ellipse) c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
-            engine.addShape(c);
+//            engine.addShape(c);
             c.draw(engine.getGc());
         }else if(currentShape.equals("Line")){
-            LineSegment c = new LineSegment();
-            c.setP1(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
-            c.setP2(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c = new LineSegment();
+            ((LineSegment) c).setP1(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((LineSegment) c).setP2(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
-            engine.addShape(c);
+//            engine.addShape(c);
             c.draw(engine.getGc());
         }else if(currentShape.equals("Rectangle")){
-            Rectangle c = new Rectangle();
-            c.setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
-            c.setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c = new Rectangle();
+            ((Rectangle) c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Rectangle) c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
-            engine.addShape(c);
+//            engine.addShape(c);
             c.draw(engine.getGc());
         }else if(currentShape.equals("Square")){
-            Square c = new Square();
-            c.setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
-            c.setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c = new Square();
+            ((Square) c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Square) c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
-            engine.addShape(c);
+//            engine.addShape(c);
             c.draw(engine.getGc());
         }else if(currentShape.equals("Triangle")){
-            Triangle c = new Triangle();
-            c.setP1(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
-            c.setP2(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
-            c.setP3(new Point(Integer.parseInt(x3.getText()),Integer.parseInt(y3.getText())));
+            c = new Triangle();
+            ((Triangle) c).setP1(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Triangle) c).setP2(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            ((Triangle) c).setP3(new Point(Integer.parseInt(x3.getText()),Integer.parseInt(y3.getText())));
             c.setColor(stroke.getValue());
             c.setFillColor(fill.getValue());
-            engine.addShape(c);
+//            engine.addShape(c);
             c.draw(engine.getGc());
+        }
+        if(!dragged){
+            engine.addShape(c);
         }
         //engine.refresh(graphicsContext);
     }
@@ -339,5 +366,35 @@ public class Controller {
     private void show(){
     }
 
+    private void drawShapes(GraphicsContext gc) {
+        Rectangle c = new Rectangle(new Point(2,2),new Point(200,200));
+        c.setUpleft(new Point(2,2));
+        c.setDownright(new Point(200,200));
+        c.setFillColor(javafx.scene.paint.Color.BLACK);
+        c.setColor(javafx.scene.paint.Color.YELLOW);
+        c.draw(gc);
+        Circle s = new Circle(new Point(5,5),new Point(30,30));
+        s.setColor(javafx.scene.paint.Color.YELLOW);
+        s.setFillColor(javafx.scene.paint.Color.YELLOW);
+        s.draw(gc);
+        /*gc.setLineWidth(5);
+        gc.strokeLine(40, 10, 10, 40);
+        gc.fillOval(10, 60, 30, 30);
+        gc.strokeOval(10, 60, 30, 30);
+        gc.fillRoundRect(110, 60, 30, 30, 10, 10);
+        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
+        gc.fillArc(10, 110, 30, 30, 45, 240, ArcType.OPEN);
+        gc.fillArc(60, 110, 30, 30, 45, 240, ArcType.CHORD);
+        gc.fillArc(110, 110, 30, 30, 45, 240, ArcType.ROUND);
+        gc.strokeArc(10, 160, 30, 30, 45, 240, ArcType.OPEN);
+        gc.strokeArc(60, 160, 30, 30, 45, 240, ArcType.CHORD);
+        gc.strokeArc(110, 160, 30, 30, 45, 240, ArcType.ROUND);
+        gc.fillPolygon(new double[]{10, 40, 10, 40},
+                new double[]{210, 210, 240, 240}, 4);
+        gc.strokePolygon(new double[]{60, 90, 60, 90},
+                new double[]{210, 210, 240, 240}, 4);
+        gc.strokePolyline(new double[]{110, 140, 110, 140},
+                new double[]{210, 210, 240, 240}, 4);*/
+    }
 
 }

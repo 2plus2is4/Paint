@@ -239,7 +239,6 @@ public class MyDrawingEngine implements DrawingEngine {
 
     @Override
     public void refresh(Object canvas) {
-
         for (Shape x : shapes) {
             x.draw(canvas);
         }
@@ -379,21 +378,20 @@ public class MyDrawingEngine implements DrawingEngine {
     public void redo() {
         if (i < History.size() - 1) {
             i++;
-        }
-        if (i <= History.size() - 1 && i > -1) {
-            if ((i <= History.size() - 1)) {
-                stps++;
-                Morph temp = steps.get(stps);
-                char c = temp.getOperation();
-                if(c=='a'){
-                    shapes.add(temp.getIndex(),temp.getShape());
-                }else if(c=='r'){
-                    shapes.remove(temp.getIndex());
-                }else{
-                    shapes.remove(temp.getIndex());
-                    shapes.add(temp.getIndex(),temp.getShape());
-                }
-                //stps--;
+            if (i <= History.size() - 1 && i > -1) {
+                if ((i <= History.size() - 1)) {
+                    stps++;
+                    Morph temp = steps.get(stps);
+                    char c = temp.getOperation();
+                    if(c=='a'){
+                        shapes.add(temp.getIndex(),temp.getShape());
+                    }else if(c=='r'){
+                        shapes.remove(temp.getIndex());
+                    }else{
+                        shapes.remove(temp.getIndex());
+                        shapes.add(temp.getIndex(),temp.getShape());
+                    }
+                    //stps--;
 //                ArrayList<Shape> t = new ArrayList<>();
 //                if (History.get(i).size() > shapes.size()) {
 //                    for (int j = shapes.size(); j < History.get(i).size(); j++) {
@@ -414,6 +412,7 @@ public class MyDrawingEngine implements DrawingEngine {
 //                    shapes = t;
 //                }
 
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -25,6 +26,9 @@ public class Main extends Application {
         primaryStage.setTitle("Paynet");
         primaryStage.setResizable(false);
         Scene scene = new Scene(root, 1067, 670);
+//        File f = new File("eg/edu/alexu/csd/oop/draw/cs04_06/GUI/style.css");
+//        scene.getStylesheets().clear();
+//        scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }

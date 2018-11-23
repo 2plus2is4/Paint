@@ -73,9 +73,10 @@ public class Square extends Rectangle {
 
     @Override
     public void draw (Object canvas) {
+        int m = Math.max(downright.x,downright.y);
         ((GraphicsContext) canvas).setStroke((javafx.scene.paint.Paint) this.getColor());
         ((GraphicsContext) canvas).setFill((Paint) this.getFillColor());
-        ((GraphicsContext) canvas).strokeRect(upleft.x,upleft.y,downright.x,downright.x);
-        ((GraphicsContext) canvas).fillRect(upleft.x,upleft.y,downright.x,downright.x);
+        ((GraphicsContext) canvas).strokeRect(upleft.x,upleft.y,m,m);
+        ((GraphicsContext) canvas).fillRect(upleft.x,upleft.y,m,m);
     }
 }
