@@ -2,6 +2,8 @@ package eg.edu.alexu.csd.oop.draw.cs04_06;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
+
+import eg.edu.alexu.csd.oop.draw.Shape;
 import javafx.scene.paint.Color;
 
 public class MyShape implements eg.edu.alexu.csd.oop.draw.Shape {
@@ -100,5 +102,8 @@ public class MyShape implements eg.edu.alexu.csd.oop.draw.Shape {
         }
         c.setProperties(temp);
         return c;
+    }
+
+    public void clone(Shape cs) {
     }
 }

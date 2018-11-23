@@ -67,6 +67,8 @@ public class Controller {
     @FXML
     Label status;
     @FXML
+    Label csitr;
+    @FXML
     ColorPicker fill;
     @FXML
     ColorPicker stroke;
@@ -108,6 +110,7 @@ public class Controller {
     Point tclick;
     boolean dragged;
     int triii=0;
+    int csIterator;
 
     @FXML void initialize(){
         stroke.setValue(Color.BLACK);
@@ -221,6 +224,102 @@ public class Controller {
         begin(stage);
         engine.refresh(engine.getGc());
 
+    }
+
+    public void next(ActionEvent event){
+        if(csIterator<engine.getShapes().length-1)
+            csIterator++;
+        csitr.setText(Integer.toString(csIterator));
+    }
+
+    public void previous(ActionEvent event){
+        if(csIterator>0)
+            csIterator--;
+        csitr.setText(Integer.toString(csIterator));
+    }
+
+    public void ed(ActionEvent event){
+        if(engine.getShapes().length>0) {
+            if (shapeupdate) {
+                edit.setText("Edit");
+                draw.setText("draw");
+                shapeupdate = false;
+                draw.setDisable(true);
+            } else {
+                shapeupdate = true;
+                edit.setText("draw");
+                draw.setText("update");
+                draw.setDisable(false);
+                shapeSelected = true;
+                csIterator=engine.getShapes().length - 1;
+            }
+        }
+    }
+
+    public void up(ActionEvent e){
+        MyShape c= new MyShape();
+//        try {
+//            neo= ((MyShape) cs.clone());
+//        } catch (CloneNotSupportedException e1) {
+//            e1.printStackTrace();
+//        }
+//        neo.setColor(stroke.getValue());
+//        neo.setFillColor(fill.getValue());
+//        neo.setPosition(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+//        Circle c;
+        if(engine.getShapes()[csIterator].getProperties().get("shapeNo").intValue()==1){
+            c = new Circle();
+            //System.out.println(Integer.parseInt(x1.getText()));
+            ((Circle)c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            ((Circle)c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            c.setColor(stroke.getValue());
+            c.setFillColor(fill.getValue());
+//            engine.addShape(c);
+
+        }else if(engine.getShapes()[csIterator].getProperties().get("shapeNo").intValue()==2){
+            c = new Ellipse();
+            ((Ellipse) c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Ellipse) c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c.setColor(stroke.getValue());
+            c.setFillColor(fill.getValue());
+//            engine.addShape(c);
+
+        }else if(engine.getShapes()[csIterator].getProperties().get("shapeNo").intValue()==3){
+            c = new LineSegment();
+            ((LineSegment) c).setP1(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((LineSegment) c).setP2(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c.setColor(stroke.getValue());
+            c.setFillColor(fill.getValue());
+//            engine.addShape(c);
+
+        }else if(engine.getShapes()[csIterator].getProperties().get("shapeNo").intValue()==4){
+            c = new Rectangle();
+            ((Rectangle) c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Rectangle) c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c.setColor(stroke.getValue());
+            c.setFillColor(fill.getValue());
+//            engine.addShape(c);
+
+        }else if(engine.getShapes()[csIterator].getProperties().get("shapeNo").intValue()==5){
+            c = new Square();
+            ((Square) c).setUpleft(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Square) c).setDownright(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            c.setColor(stroke.getValue());
+            c.setFillColor(fill.getValue());
+//            engine.addShape(c);
+
+        }else if(engine.getShapes()[csIterator].getProperties().get("shapeNo").intValue()==6){
+            c = new Triangle();
+            ((Triangle) c).setP1(new Point(Integer.parseInt(x1.getText()),Integer.parseInt(y1.getText())));
+            ((Triangle) c).setP2(new Point(Integer.parseInt(x2.getText()),Integer.parseInt(y2.getText())));
+            ((Triangle) c).setP3(new Point(Integer.parseInt(x3.getText()),Integer.parseInt(y3.getText())));
+            c.setColor(stroke.getValue());
+            c.setFillColor(fill.getValue());
+//            engine.addShape(c);
+
+        }
+        engine.updateShape(engine.getShapes()[csIterator],c);
+        engine.refresh(engine.getGc());
     }
 
     public void un(ActionEvent e){
@@ -358,10 +457,7 @@ public class Controller {
         graphicsContext.setFill(fill.getValue());
     }
 
-    public void ed(ActionEvent event){
-        shapeupdate = true;
-        draw.setText("update");
-    }
+
 
     private void show(){
     }
