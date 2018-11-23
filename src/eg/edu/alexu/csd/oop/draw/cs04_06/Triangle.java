@@ -17,14 +17,14 @@ public class Triangle extends MyShape {
 
     public void setP2(Point p2) {
         this.p2 = p2;
-        this.getProperties().put("upleftx",(double)p2.x);
-        this.getProperties().put("uplefty",(double)p2.y);
+        this.getProperties().put("downrightx",(double)p2.x);
+        this.getProperties().put("downrighty",(double)p2.y);
     }
 
     public void setP3(Point p3) {
         this.p3 = p3;
-        this.getProperties().put("upleftx",(double)p3.x);
-        this.getProperties().put("uplefty",(double)p3.y);
+        this.getProperties().put("t3x",(double)p3.x);
+        this.getProperties().put("t3y",(double)p3.y);
     }
 
     public Triangle(Point a, Point b, Point c){

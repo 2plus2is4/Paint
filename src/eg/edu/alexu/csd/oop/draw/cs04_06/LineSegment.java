@@ -18,8 +18,8 @@ public class LineSegment extends MyShape {
 
     public void setP2(Point p2) {
         this.p2 = p2;
-        this.getProperties().put("upleftx",(double)p2.x);
-        this.getProperties().put("uplefty",(double)p2.y);
+        this.getProperties().put("downrightx",(double)p2.x);
+        this.getProperties().put("downrighty",(double)p2.y);
     }
 
     public LineSegment(Point a, Point b){
