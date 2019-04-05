@@ -1,4 +1,3 @@
-# shithappens
-read the title!\
-bitch.
+# Paint
+a Paint OOP project using Java & JavaFX
 
